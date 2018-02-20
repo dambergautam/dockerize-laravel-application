@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+    # The Laravel Application
+    fs_app:
+        container_name: fellowship_laravel_app
+        build: ./local
+        volumes:
+            - ./laravel/:/var/www/html
+        links:
+            - fs_database
+        ports:
+            - 8080:80
+        depends_on:
+            - "fs_database"
+        environment:
+            - "DB_PORT=3306"
+            - "DB_HOST=fs_database"
+
+    # The Database
+    fs_database:
+        image: mysql:latest
+        volumes:
+            - "./db:/docker-entrypoint-initdb.d"
+            - "./dbdata:/var/lib/mysql"
+        environment:
+            - "MYSQL_DATABASE=fellowship"
+            - "MYSQL_USER=fellowship"
+            - "MYSQL_PASSWORD=secret"
+            - "MYSQL_ROOT_PASSWORD=root"
+        ports:
+            - "33061:3306"

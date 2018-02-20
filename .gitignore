@@ -1,0 +1,15 @@
+# Mysql data
+/dbdata
+
+# Laravel project
+/laravel
+
+# Database
+/db/*.sql
+
+# Other file types
+/**/*.yml-e
+*.swp
+*.swo
+.DS_Store
+/nbproject/private/
