@@ -48,4 +48,4 @@ Make sure you adjust database environment in `docker-compose.yml` same as `larav
 $ docker-compose up --build
 ```
 
-You are done, you can visit your Laravel application on the following URL: http://laravel.dev:8080
+Hurry!! now visit your Laravel application on the following URL: http://laravel.dev:8080
