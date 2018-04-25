@@ -1,33 +1,50 @@
-version: '3'
+version: '2'
 
 services:
-
-    # The Laravel Application
-    fs_app:
-        container_name: fellowship_laravel_app
-        build: ./local
+    # Laravel application
+    laravel_php_fpm:
+        build: ./php-fpm
+        container_name: fs_laravel_php_fpm
         volumes:
-            - ./laravel/:/var/www/html
+            - ./laravel:/var/www/laravel
+            - ./storage/app:/var/www/laravel/storage/app
+            - ./storage/log:/var/www/laravel/storage/logs
         links:
-            - fs_database
+            - "laravel_database"
         ports:
-            - 8080:80
+            - "9010:9000"
         depends_on:
-            - "fs_database"
+            - "laravel_database"
         environment:
             - "DB_PORT=3306"
-            - "DB_HOST=fs_database"
+            - "DB_HOST=laravel_database"
+
+    # Webserver
+    nginx:
+        build: ./nginx
+        container_name: fs_laravel_nginx
+        ports:
+            - "82:80"
+        links:
+            - laravel_php_fpm
+        volumes_from:
+            - laravel_php_fpm
+        volumes:
+            - ./logs/nginx/:/var/log/nginx
+        restart: always
 
     # The Database
-    fs_database:
+    laravel_database:
         image: mysql:latest
+        container_name: fs_laravel_mysql
         volumes:
             - "./db:/docker-entrypoint-initdb.d"
-            - "./dbdata:/var/lib/mysql"
+            - "./db/dbdata:/var/lib/mysql"
         environment:
             - "MYSQL_DATABASE=fellowship"
             - "MYSQL_USER=fellowship"
             - "MYSQL_PASSWORD=secret"
             - "MYSQL_ROOT_PASSWORD=root"
         ports:
-            - "33061:3306"
+            - "33063:3306"
+        restart: always

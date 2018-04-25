@@ -1,4 +1,17 @@
-# docker-laravel
+# docker-laravel -Advanced
+
+This is advance docker setup for Laravel 5.5 project for development environment.
+And soon I will add production ready docker setup files.
+
+## First-time installation
+1. Clone fellowship docker project `fellowship-docker`
+2. Go to project root directory `cd fellowship-docker`
+3. Install project `bash ./first-time-installation/install-project.sh`
+4. Checkout website `http://0.0.0.0:82`
+
+---
+
+# docker-laravel -[Version 1.0.0](https://github.com/dambergautam/laravel-docker/releases/tag/1.0.0)
 
 This is just a quick note for self to up and run Laravel project with Docker.
 
