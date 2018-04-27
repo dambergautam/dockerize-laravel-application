@@ -1,13 +1,13 @@
 # docker-laravel -Advanced
 
-This is advance docker setup for Laravel 5.5 project for development environment.
+This is advance docker setup for Laravel 5.* project for development environment.
 And soon I will add production ready docker setup files.
 
 ## First-time installation
-1. Clone fellowship docker project `fellowship-docker`
-2. Go to project root directory `cd fellowship-docker`
+1. Clone the docker project `laravel-docker`
+2. Go to project root directory `cd laravel-docker`
 3. Install project `bash ./first-time-installation/install-project.sh`
-4. Checkout website `http://0.0.0.0:82`
+4. Checkout website `http://dev.laravel:82`
 
 ---
 
@@ -42,7 +42,7 @@ cp .env.example .env
 
 # Adjust your environment variables
 Generate `APP_KEY`
-Update `APP_URL` (APP_URL=http://laravel.dev:8080)
+Update `APP_URL` (APP_URL=http://dev.laravel:8080)
 Set db connection type (DB_CONNECTION=mysql)
 Make sure DB_HOST matched with docker service name (DB_HOST=fs_database)
 Add unique db port so that it don't get conflict (DB_PORT=33061)
@@ -51,7 +51,7 @@ Set database username (DB_USERNAME=fellowship)
 Set database password (DB_PASSWORD=secret)
 ```
 
-Next, add laravel.dev in your /etc/hosts file.
+Next, add dev.laravel in your /etc/hosts file.
 
 Make sure you adjust database environment in `docker-compose.yml` same as `laravel/.env` file.
 
@@ -61,4 +61,4 @@ Make sure you adjust database environment in `docker-compose.yml` same as `larav
 $ docker-compose up --build
 ```
 
-Hurry!! now visit your Laravel application on the following URL: http://laravel.dev:8080
+Hurry!! now visit your Laravel application on the following URL: http://dev.laravel:8080
