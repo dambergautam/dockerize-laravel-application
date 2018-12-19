@@ -7,8 +7,6 @@ services:
         container_name: fs_laravel_php_fpm
         volumes:
             - ./laravel:/var/www/laravel
-            - ./storage/app:/var/www/laravel/storage/app
-            - ./storage/log:/var/www/laravel/storage/logs
         links:
             - "laravel_database"
         ports:
