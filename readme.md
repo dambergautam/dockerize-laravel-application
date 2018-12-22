@@ -14,7 +14,7 @@ git clone https://github.com/dambergautam/laravel-docker.git laravel-docker
 
 ```
 cd laravel-docker
-git clone https://github.com/laravel/laravel/archive/5.5.zip
+curl -O https://github.com/laravel/laravel/archive/5.5.zip
 unzip 5.5.zip
 mv 5.5 laravel
 ```
@@ -28,8 +28,12 @@ cd laravel-docker/laravel
 cp .env.example .env
 
 # Adjust your environment variables
-Generate `APP_KEY`
-Update `APP_URL` (APP_URL=http://laravel.dev:8080)
+# Generate `APP_KEY`
+php artisan key:generate
+
+# Update `APP_URL`
+APP_URL=http://localhost:8080
+
 Set db connection type (DB_CONNECTION=mysql)
 Make sure DB_HOST matched with docker service name (DB_HOST=fs_database)
 Add unique db port so that it don't get conflict (DB_PORT=33061)

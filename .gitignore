@@ -1,11 +1,13 @@
 # Mysql data
 /dbdata
-
+/db/dbdata
 # Laravel project
 /laravel
 
 # Database
 /db/*.sql
+
+/logs
 
 # Other file types
 /**/*.yml-e
