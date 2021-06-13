@@ -20,7 +20,7 @@ services:
 
     # The Database
     fs_database:
-        image: mysql:latest
+        image: mariadb:10.2
         volumes:
             - "./db:/docker-entrypoint-initdb.d"
             - "./dbdata:/var/lib/mysql"
