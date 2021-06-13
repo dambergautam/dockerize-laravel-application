@@ -42,8 +42,6 @@ Set database username (DB_USERNAME=fellowship)
 Set database password (DB_PASSWORD=secret)
 ```
 
-Next, add laravel.dev in your /etc/hosts file.
-
 Make sure you adjust database environment in `docker-compose.yml` same as `laravel/.env` file.
 
 **Then, run:**
@@ -52,4 +50,4 @@ Make sure you adjust database environment in `docker-compose.yml` same as `larav
 $ docker-compose up --build
 ```
 
-Hurry!! now visit your Laravel application on the following URL: http://laravel.dev:8080
+Hurry!! now visit your Laravel application on the following URL: http://localhost:8080
